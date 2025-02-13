@@ -1,4 +1,5 @@
 //Elementos
+const countTxtSecrets = document.getElementsByClassName("count-txt-secrets")[0];
 const txtPrincipal = document.getElementsByClassName("txt-principal")[0];
 const btnContinue = document.getElementsByClassName("btn-continue")[0];
 const imgSticker = document.getElementsByClassName("img-sticker")[0];
@@ -9,6 +10,9 @@ const btnNo = document.getElementsByClassName("btn-no")[0];
 
 //Inicializacion
 var numLine = 1;
+var saveNumLine = 1;
+var countSecrets = 0;
+const opsPhraseNo = [];
 
 //Functions (Lists)
 const textPrincipalComplete = () => {
@@ -98,6 +102,11 @@ const phrasesNo = () => {
     do {
         op = Math.floor(Math.random() * 17);
     } while (op == 0);
+
+    if (!opsPhraseNo.includes(op)) {
+        opsPhraseNo.push(op);
+        countSecrets++;
+    }
     
     switch (op) {
         case 1:
@@ -192,6 +201,22 @@ const urlImgSecretTwo = () => {
 }
 
 //Functions (Changes)
+const countSecret = () => {
+    if (saveNumLine != numLine) {
+        saveNumLine++;
+        countSecrets++;
+    }
+
+    if (countSecrets == 0)
+        countSecrets++;
+
+    changeCountTextSecret();
+}
+
+const changeCountTextSecret = () => {
+    countTxtSecrets.innerText = countSecrets;
+}
+
 const writeTextPrincipal = () => {
     txtPrincipal.innerText = textPrincipalComplete(numLine);
 }
@@ -229,6 +254,7 @@ const showImgSecretTwo = () => {
 }
 
 const changeLine = () => {
+    saveNumLine = numLine;
     numLine++;
     writeTextPrincipal(numLine);
     changeSticker(numLine);
@@ -238,6 +264,7 @@ const changeLine = () => {
 }
 
 //Inicializacion HTML
+countTxtSecrets.innerText = countSecrets;
 writeTextPrincipal();
 changeSticker();
 btnContinue.innerText = "Continuar...";
@@ -262,6 +289,7 @@ btnContinue.addEventListener("click", () => {
 imgSticker.addEventListener("click", () => {
     changeDisplayImg(imgSecret, "block");
     showImgSecretTwo();
+    countSecret();
 });
 
 btnYes.addEventListener("click", () => {
@@ -271,4 +299,5 @@ btnYes.addEventListener("click", () => {
 
 btnNo.addEventListener("click", () => {
     changeBtnNo();
+    changeCountTextSecret();
 });
