@@ -4,12 +4,14 @@ const btnContinue = document.getElementsByClassName("btn-continue")[0];
 const imgSticker = document.getElementsByClassName("img-sticker")[0];
 const imgSecret = document.getElementsByClassName("img-secret")[0];
 const imgSecrettwo = document.getElementsByClassName("img-secret-two")[0];
+const btnYes = document.getElementsByClassName("btn-yes")[0];
+const btnNo = document.getElementsByClassName("btn-no")[0];
 
 //Inicializacion
-var countNumLine = 1;
+var numLine = 1;
 
 //Functions (Lists)
-const textPrincipalComplete = (numLine) => {
+const textPrincipalComplete = () => {
     switch (numLine) {
         case 1:
             return "Oye preciosa..."
@@ -50,7 +52,7 @@ const textPrincipalComplete = (numLine) => {
     }
 }
 
-const urlSticker = (numLine) => {
+const urlSticker = () => {
     switch (numLine) {
         case 1:
             return "./assets/img/Stickers/Kuromi-Sticker3.gif";
@@ -91,7 +93,51 @@ const urlSticker = (numLine) => {
     }
 }
 
-const urlImgSecret = (numLine) => {
+const phrasesNo = () => {
+    var op = 0;
+    do {
+        op = Math.floor(Math.random() * 17);
+    } while (op == 0);
+    
+    switch (op) {
+        case 1:
+            return "No te vas a arrepentir."
+        case 2:
+            return "Por favor, di que sí."
+        case 3:
+            return "Te va a gustar."
+        case 4:
+            return "Confía en mí."
+        case 5:
+            return "Te hare feliz."
+        case 6:
+            return "No tengas miedo."
+        case 7:
+            return "Sera genial."
+        case 8:
+            return "No dejes que el miedo te detenga."
+        case 9:
+            return "No tengas dudas."
+        case 10:
+            return "Sera divertido."
+        case 11:
+            return "Te prometo que será inolvidable."
+        case 12:
+            return "Atrévete a decir que sí."
+        case 13:
+            return "Piénsalo de nuevo."
+        case 14:
+            return "Confía en el destino."
+        case 15:
+            return "¿Segura?"
+        case 16:
+            return "¿Segurísima?"
+        default:
+            break;
+    }
+}
+
+const urlImgSecret = () => {
     switch (numLine) {
         case 1:
             return "./assets/img/Secret Photos/Foto.jpg";
@@ -132,7 +178,7 @@ const urlImgSecret = (numLine) => {
     }
 }
 
-const urlImgSecretTwo = (numLine) => {
+const urlImgSecretTwo = () => {
     switch (numLine) {
         case 4:
             return "./assets/img/Secret Photos/Cancion3.jpg"
@@ -146,19 +192,28 @@ const urlImgSecretTwo = (numLine) => {
 }
 
 //Functions (Changes)
-const writeTextPrincipal = (numLine) => {
+const writeTextPrincipal = () => {
     txtPrincipal.innerText = textPrincipalComplete(numLine);
 }
 
-const changeSticker = (numLine) => {
+const changeSticker = () => {
     imgSticker.src = urlSticker(numLine);
 }
 
-const changeImgSecret = (numLine) => {
+const changeBtnNo = () => {
+    btnNo.innerText = phrasesNo();
+}
+
+const showBtsYesNo = (display) => {
+    btnYes.style.display = display;
+    btnNo.style.display = display;
+}
+
+const changeImgSecret = () => {
     imgSecret.src = urlImgSecret(numLine);
 }
 
-const changeImgSecretTwo = (numLine) => {
+const changeImgSecretTwo = () => {
     imgSecrettwo.src = urlImgSecretTwo(numLine);
 }
 
@@ -166,35 +221,50 @@ const changeDisplayImg = (img, display) => {
     img.style.display = display;
 }
 
-const showImgSecretTwo = (numLine) => {
+const showImgSecretTwo = () => {
     if (numLine == 4 || numLine == 5 || numLine == 10) {
-        changeImgSecretTwo(countNumLine);
+        changeImgSecretTwo(numLine);
         changeDisplayImg(imgSecrettwo, "block");
     }
 }
 
+const changeLine = () => {
+    numLine++;
+    writeTextPrincipal(numLine);
+    changeSticker(numLine);
+    changeImgSecret(numLine);
+    changeDisplayImg(imgSecret, "none");
+    changeDisplayImg(imgSecrettwo, "none");
+}
+
 //Inicializacion HTML
-writeTextPrincipal(countNumLine);
-changeSticker(countNumLine);
+writeTextPrincipal();
+changeSticker();
 btnContinue.innerText = "Continuar...";
-changeImgSecret(countNumLine);
+btnYes.innerText = "Si";
+btnYes.style.display = "none";
+btnNo.innerText = "No";
+btnNo.style.display = "none";
+changeImgSecret();
 changeDisplayImg(imgSecret, "none");
 changeDisplayImg(imgSecrettwo, "none");
 
 //Clicks Events
 btnContinue.addEventListener("click", () => {
-    countNumLine++;
-    writeTextPrincipal(countNumLine);
-    changeSticker(countNumLine);
-    changeImgSecret(countNumLine);
-    changeDisplayImg(imgSecret, "none");
-    changeDisplayImg(imgSecrettwo, "none");
+    changeLine();
     
-    if (countNumLine > 15)
+    if (numLine > 15) {
         btnContinue.style.display = "none";
+        showBtsYesNo("block");
+    }
 });
 
 imgSticker.addEventListener("click", () => {
     changeDisplayImg(imgSecret, "block");
-    showImgSecretTwo(countNumLine);
+    showImgSecretTwo();
+});
+
+btnYes.addEventListener("click", () => {
+    changeLine();
+    showBtsYesNo("none");
 });
