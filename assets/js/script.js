@@ -268,3 +268,7 @@ btnYes.addEventListener("click", () => {
     changeLine();
     showBtsYesNo("none");
 });
+
+btnNo.addEventListener("click", () => {
+    changeBtnNo();
+});
