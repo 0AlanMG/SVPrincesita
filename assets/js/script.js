@@ -3,6 +3,7 @@ const txtPrincipal = document.getElementsByClassName("txt-principal")[0];
 const btnContinue = document.getElementsByClassName("btn-continue")[0];
 const imgSticker = document.getElementsByClassName("img-sticker")[0];
 const imgSecret = document.getElementsByClassName("img-secret")[0];
+const imgSecrettwo = document.getElementsByClassName("img-secret-two")[0];
 
 //Inicializacion
 var countNumLine = 1;
@@ -131,6 +132,19 @@ const urlImgSecret = (numLine) => {
     }
 }
 
+const urlImgSecretTwo = (numLine) => {
+    switch (numLine) {
+        case 4:
+            return "./assets/img/Secret Photos/Cancion3.jpg"
+        case 5:
+            return "./assets/img/Secret Photos/Cancion4.jpg"
+        case 10:
+            return "./assets/img/Secret Photos/Cancion6.jpg"
+        default:
+            break;
+    }
+}
+
 //Functions (Changes)
 const writeTextPrincipal = (numLine) => {
     txtPrincipal.innerText = textPrincipalComplete(numLine);
@@ -144,8 +158,19 @@ const changeImgSecret = (numLine) => {
     imgSecret.src = urlImgSecret(numLine);
 }
 
-const changeDisplayImgSecret = (display) => {
-    imgSecret.style.display = display;
+const changeImgSecretTwo = (numLine) => {
+    imgSecrettwo.src = urlImgSecretTwo(numLine);
+}
+
+const changeDisplayImg = (img, display) => {
+    img.style.display = display;
+}
+
+const showImgSecretTwo = (numLine) => {
+    if (numLine == 4 || numLine == 5 || numLine == 10) {
+        changeImgSecretTwo(countNumLine);
+        changeDisplayImg(imgSecrettwo, "block");
+    }
 }
 
 //Inicializacion HTML
@@ -153,7 +178,8 @@ writeTextPrincipal(countNumLine);
 changeSticker(countNumLine);
 btnContinue.innerText = "Continuar...";
 changeImgSecret(countNumLine);
-changeDisplayImgSecret("none");
+changeDisplayImg(imgSecret, "none");
+changeDisplayImg(imgSecrettwo, "none");
 
 //Clicks Events
 btnContinue.addEventListener("click", () => {
@@ -161,12 +187,14 @@ btnContinue.addEventListener("click", () => {
     writeTextPrincipal(countNumLine);
     changeSticker(countNumLine);
     changeImgSecret(countNumLine);
-    changeDisplayImgSecret("none");
+    changeDisplayImg(imgSecret, "none");
+    changeDisplayImg(imgSecrettwo, "none");
     
     if (countNumLine > 15)
         btnContinue.style.display = "none";
 });
 
 imgSticker.addEventListener("click", () => {
-    changeDisplayImgSecret("block");
+    changeDisplayImg(imgSecret, "block");
+    showImgSecretTwo(countNumLine);
 });
