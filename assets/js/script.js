@@ -1,11 +1,12 @@
 //Elementos
 const txtPrincipal = document.getElementsByClassName("txt-principal")[0];
 const btnContinue = document.getElementsByClassName("btn-continue")[0];
+const imgSticker = document.getElementsByClassName("img-sticker")[0];
 
 //Inicializacion
 var countNumLine = 1;
 
-//Functions
+//Functions (Lists)
 const textPrincipalComplete = (numLine) => {
     switch (numLine) {
         case 1:
@@ -47,18 +48,66 @@ const textPrincipalComplete = (numLine) => {
     }
 }
 
+const urlSticker = (numLine) => {
+    switch (numLine) {
+        case 1:
+            return "./assets/img/Stickers/Kuromi-Sticker3.gif";
+        case 2:
+            return "./assets/img/Stickers/Kuromi-Sticker.gif"
+        case 3:
+            return "./assets/img/Stickers/Kuromi-Sticker2.gif"
+        case 4:
+            return "./assets/img/Stickers/Capybara-Sticker4.gif"
+        case 5:
+            return "./assets/img/Stickers/Capybara-Sticker1.gif"
+        case 6:
+            return "./assets/img/Stickers/Capybara-Sticker3.gif"
+        case 7:
+            return "./assets/img/Stickers/Capybara-Sticker2.gif"
+        case 8:
+            return "./assets/img/Stickers/Capybara-Sticker6.gif"
+        case 9:
+            return "./assets/img/Stickers/Capybara-Sticker11.gif"
+        case 10:
+            return "./assets/img/Stickers/Capybara-Sticker.gif"
+        case 11:
+            return "./assets/img/Stickers/Capybara-Sticker10.gif"
+        case 12:
+            return "./assets/img/Stickers/Capybara-Sticker8.gif"
+        case 13:
+            return "./assets/img/Stickers/Capybara-Sticker1.gif"
+        case 14:
+            return "./assets/img/Stickers/Capybara-Sticker4.gif"
+        case 15:
+            return "./assets/img/Stickers/Capybara-Sticker7.gif"
+        case 16:
+            return "./assets/img/Stickers/Capybara-Sticker9.gif"
+        case 17:
+            return "./assets/img/Stickers/Capybara-Sticker1.gif"
+        default:
+            break;
+    }
+}
+
+//Functions (Changes)
 const writeTextPrincipal = (numLine) => {
     txtPrincipal.innerText = textPrincipalComplete(numLine);
 }
 
+const changeSticker = (numLine) => {
+    imgSticker.src = urlSticker(numLine);
+}
+
 //Inicializacion HTML
 writeTextPrincipal(countNumLine);
+changeSticker(countNumLine);
 btnContinue.innerText = "Continuar...";
 
 //Clicks Events
 btnContinue.addEventListener("click", () => {
     countNumLine++;
     writeTextPrincipal(countNumLine);
+    changeSticker(countNumLine);
     
     if (countNumLine > 15)
         btnContinue.style.display = "none";
