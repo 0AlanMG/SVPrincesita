@@ -155,28 +155,35 @@ const urlImgSecret = () => {
         case 3:
             return "./assets/img/Secret Photos/Foto2.jpg"
         case 4:
+            changeHeightImg(imgSecret, "225px");
             return "./assets/img/Secret Photos/Mensaje.jpg"
         case 5:
             return "./assets/img/Secret Photos/Detalle2.jpg"
         case 6:
             return "./assets/img/Secret Photos/Detalle3.jpg"
         case 7:
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion1.jpg"
         case 8:
             return "./assets/img/Secret Photos/Detalle6.jpg"
         case 9:
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion.jpg"
         case 10:
+            changeHeightImg(imgSecret, "175px");
             return "./assets/img/Secret Photos/Detalle4.jpg"
         case 11:
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion2.jpg"
         case 12:
             return "./assets/img/Secret Photos/Detalle1.jpg"
         case 13:
             return "./assets/img/Secret Photos/Detalle7.jpg"
         case 14:
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion5.jpg"
         case 15:
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion8.jpg"
         case 16:
             return "./assets/img/Secret Photos/Foto4.jpg"
@@ -246,6 +253,10 @@ const changeDisplayImg = (img, display) => {
     img.style.display = display;
 }
 
+const changeHeightImg = (img, height) => {
+    img.style.height = height;
+}
+
 const showImgSecretTwo = () => {
     if (numLine == 4 || numLine == 5 || numLine == 10) {
         changeImgSecretTwo(numLine);
@@ -258,6 +269,7 @@ const changeLine = () => {
     numLine++;
     writeTextPrincipal(numLine);
     changeSticker(numLine);
+    changeHeightImg(imgSecret, "300px");
     changeImgSecret(numLine);
     changeDisplayImg(imgSecret, "none");
     changeDisplayImg(imgSecrettwo, "none");
