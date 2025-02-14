@@ -48,7 +48,7 @@ const textPrincipalComplete = () => {
         case 15:
             return "¿Te gustaría ser mi..."
         case 16:
-            return "¿Te gustaría ser mi San Valentine?"
+            return "¿Te gustaría ser mi San Valentin?"
         case 17:
             return "¡Sabía de dirías que si mi niña bonita!"
         default:
