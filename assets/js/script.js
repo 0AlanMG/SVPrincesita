@@ -18,39 +18,39 @@ const opsPhraseNo = [];
 const textPrincipalComplete = () => {
     switch (numLine) {
         case 1:
-            return "Oye preciosa..."
+            return "Oye preciosa... 😘"
         case 2:
-            return "Oye hermosa..."
+            return "Oye hermosa... 😘"
         case 3:
-            return "Oye chulada de señorita..."
+            return "Oye chulada de señorita... 😘"
         case 4:
-            return "Quiero contarte algo..."
+            return "Quiero contarte algo... 🥹"
         case 5:
-            return "Eres una chica maravillosa..."
+            return "Eres una chica maravillosa... 😍"
         case 6:
-            return "Con un bonito corazón..."
+            return "Con un bonito corazón... 💖"
         case 7:
-            return "Una personita muy especial en mi vida..."
+            return "Una personita muy especial en mi vida... 🥹"
         case 8:
-            return "A la que amo demasiado..."
+            return "A la que amo demasiado... 🥰"
         case 9:
-            return "Por el tiempo, por la atención..."
+            return "Por el tiempo, por la atención... 🥰"
         case 10:
-            return "Por el cuidado, por el amor..."
+            return "Por el cuidado, por el amor... 🥹"
         case 11:
-            return "Y por todo lo que me has dado..."
+            return "Y por todo lo que me has dado... 💖"
         case 12:
-            return "Por todo lo que representas para mí..."
+            return "Por todo lo que representas para mí... 😍"
         case 13:
-            return "Por simplemente ser tu..."
+            return "Por simplemente ser tu... 💖"
         case 14:
-            return "Quiero pedirte algo mi princesita..."
+            return "Quiero pedirte algo mi princesita... 🥹"
         case 15:
-            return "¿Te gustaría ser mi..."
+            return "¿Te gustaría ser mi... 🥹"
         case 16:
-            return "¿Te gustaría ser mi San Valentin?"
+            return "¿Te gustaría ser mi San Valentin? 💖"
         case 17:
-            return "¡Sabía de dirías que si mi niña bonita!"
+            return "¡Sabía de dirías que si mi niña bonita ❤️!"
         default:
             break;
     }
