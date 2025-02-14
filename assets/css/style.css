@@ -7,3 +7,23 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.img-sticker {
+    height: 350px;
+}
+
+.img-secret{
+    height: 300px;
+}
+
+.img-secret-two{
+    height: 50px;
+}
