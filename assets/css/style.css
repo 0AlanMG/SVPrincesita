@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 140vh;
     width: 100vw;
 
     background-image: url("../img/Background/Background.jpg");
@@ -23,14 +23,50 @@ main {
 
     color: white;
 
-    font-weight: 700;
     font-size: 1.5rem;
+    font-weight: 700;
+    
+    line-height: 1;
+}
+
+.sec-principal {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    gap: 2rem;
+}
+
+.txt-principal {
+    text-align: center;
+
+    color: white;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: 900;
     
     line-height: 1;
 }
 
 .img-sticker {
     height: 350px;
+}
+
+.btn-continue {
+    text-align: center;
+
+    color: white;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    
+    line-height: 1;
 }
 
 .img-secret{
