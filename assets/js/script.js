@@ -162,28 +162,28 @@ const urlImgSecret = () => {
         case 6:
             return "./assets/img/Secret Photos/Detalle3.jpg"
         case 7:
-            changeHeightImg(imgSecret, "50px");
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion1.jpg"
         case 8:
             return "./assets/img/Secret Photos/Detalle6.jpg"
         case 9:
-            changeHeightImg(imgSecret, "50px");
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion.jpg"
         case 10:
             changeHeightImg(imgSecret, "175px");
             return "./assets/img/Secret Photos/Detalle4.jpg"
         case 11:
-            changeHeightImg(imgSecret, "50px");
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion2.jpg"
         case 12:
             return "./assets/img/Secret Photos/Detalle1.jpg"
         case 13:
             return "./assets/img/Secret Photos/Detalle7.jpg"
         case 14:
-            changeHeightImg(imgSecret, "50px");
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion5.jpg"
         case 15:
-            changeHeightImg(imgSecret, "50px");
+            changeHeightImg(imgSecret, "60px");
             return "./assets/img/Secret Photos/Cancion8.jpg"
         case 16:
             return "./assets/img/Secret Photos/Foto4.jpg"
